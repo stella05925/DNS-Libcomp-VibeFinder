@@ -2,6 +2,22 @@ import streamlit as st
 import spotipy
 from spotipy.oauth2 import SpotifyClientCredentials
 
+import streamlit as st
+
+st.set_page_config(
+    page_title="Ex-stream-ly Cool App",
+    page_icon="🧊",
+    layout="wide",
+    initial_sidebar_state="expanded",
+    menu_items={
+        'Get Help': 'https://www.extremelycoolapp.com/help',
+        'Report a bug': "https://www.extremelycoolapp.com/bug",
+        'About': "# This is a header. This is an *extremely* cool app!"
+    }
+)
+
+st.sidebar.success("Select a page above")
+
 # Set up Spotify API client
 sp = spotipy.Spotify(auth_manager=SpotifyClientCredentials(client_id="db38a7c36dca4c9fb354f6daf9be019a", client_secret="0e64f105beb84d8db19ad4672eca99e3"))
 
