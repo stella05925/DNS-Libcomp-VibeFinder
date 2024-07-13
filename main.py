@@ -3,7 +3,7 @@ import spotipy
 from spotipy.oauth2 import SpotifyClientCredentials
 
 # Set up Spotify API client
-sp = spotipy.Spotify(auth_manager=SpotifyClientCredentials(client_id="YOUR_CLIENT_ID", client_secret="YOUR_CLIENT_SECRET"))
+sp = spotipy.Spotify(auth_manager=SpotifyClientCredentials(client_id="db38a7c36dca4c9fb354f6daf9be019a", client_secret="0e64f105beb84d8db19ad4672eca99e3"))
 
 # Define keywords and their mappings to Spotify audio features
 keywords = {
