@@ -5,6 +5,7 @@ from spotipy.oauth2 import SpotifyClientCredentials
 import base64
 from datetime import datetime
 from csvReader import TextToCSV  # Import the custom CSV reader
+import string_hasher_python  # Import the string hasher library
 
 # Initialize Spotify client
 client_credentials_manager = SpotifyClientCredentials(client_id='db38a7c36dca4c9fb354f6daf9be019a', client_secret='0e64f105beb84d8db19ad4672eca99e3')
@@ -70,9 +71,13 @@ def get_spotify_recommendations(keywords):
     results = sp.recommendations(seed_genres=seed_genres, limit=5)
     return [track['name'] + ' - ' + track['artists'][0]['name'] for track in results['tracks']]
 
+def generate_unique_id(data):
+    return string_hasher_python.GENHASH(data)
+
 def save_to_csv(keywords, recommendations):
     timestamp = datetime.now().strftime("%Y-%m-%d %H:%M:%S")
-    data = [[timestamp] + keywords + recommendations]
+    unique_id = str(generate_unique_id(timestamp + ''.join(keywords) + ''.join(recommendations)))
+    data = [[timestamp, unique_id] + keywords + recommendations]
     with open('temp_vibe_finder.txt', 'w') as file:
         for row in data:
             file.write('\t'.join(row) + '\n')
