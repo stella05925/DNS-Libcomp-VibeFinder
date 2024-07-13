@@ -5,6 +5,16 @@ from spotipy.oauth2 import SpotifyClientCredentials
 # Set up Spotify API client
 sp = spotipy.Spotify(auth_manager=SpotifyClientCredentials(client_id="YOUR_CLIENT_ID", client_secret="YOUR_CLIENT_SECRET"))
 
+
+# Basic Streamlit Page
+st.set_page_config(
+    page_title="Karoake Song App",
+    page_icon="♫"
+)
+
+st.title("Main Page")
+st.sidebar.success("Select a page above.")
+
 # Define keywords and their mappings to Spotify audio features
 keywords = {
     "Energetic": {"energy": 0.8, "tempo": 120},
