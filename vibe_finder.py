@@ -4,7 +4,7 @@ import spotipy
 from spotipy.oauth2 import SpotifyClientCredentials
 import base64
 from datetime import datetime
-import csvReader  # Import the custom CSV reader
+from csvReader import TextToCSV  # Import the custom CSV reader
 
 # Initialize Spotify client
 client_credentials_manager = SpotifyClientCredentials(client_id='db38a7c36dca4c9fb354f6daf9be019a', client_secret='0e64f105beb84d8db19ad4672eca99e3')
@@ -72,9 +72,12 @@ def get_spotify_recommendations(keywords):
 
 def save_to_csv(keywords, recommendations):
     timestamp = datetime.now().strftime("%Y-%m-%d %H:%M:%S")
-    with open('vibe_finder_data.csv', 'a', newline='', encoding='utf-8') as file:
-        writer = csvReader.writer(file)  # Using custom CSV writer
-        writer.writerow([timestamp] + keywords + recommendations)
+    data = [[timestamp] + keywords + recommendations]
+    with open('temp_vibe_finder.txt', 'w') as file:
+        for row in data:
+            file.write('\t'.join(row) + '\n')
+    converter = TextToCSV('temp_vibe_finder.txt', '\t', 'vibe_finder_data.csv')
+    converter.convert()
 
 def main():
     # Set background image
