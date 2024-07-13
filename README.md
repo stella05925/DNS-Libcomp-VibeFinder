@@ -1,6 +1,7 @@
 # DNS-Libcomp
 
 Vibe Finder
+
 Welcome to Vibe Finder! Our website helps users who may have trouble choosing songs at karaoke by allowing them to select from a list of keywords that resonate with their current mood and vibe. Based on these selections, Vibe Finder generates a list of song recommendations to enhance your karaoke experience.
 
 Features
@@ -54,5 +55,7 @@ Acknowledgements
 Special thanks to all team members for their contributions:
 
 Felicia: Main framework and project structure.
+
 Han and Stella: Back-end algorithms and Spotify API integration.
+
 Chloe: Idea planning, UI/UX design, and functionality planning.
