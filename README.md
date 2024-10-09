@@ -26,20 +26,22 @@ To run Vibe Finder locally, follow these steps:
 Clone the repository:
 git clone https://github.com/your-username/vibe_finder.git
 Navigate to the project directory:
-
-
 cd vibe_finder
+
+Activate Venv:
+myenv\Scripts\activate
+
 Install the necessary dependencies:
-
-
 npm install
+
 Set up your environment variables for the Spotify API (create a .env file in the root directory and add your Spotify API credentials):
 
 SPOTIFY_CLIENT_ID=your_spotify_client_id
 SPOTIFY_CLIENT_SECRET=your_spotify_client_secret
-Run the development server:
 
-npm start
+Run the development server:
+python -m streamlit run vibe_finder.py
+
 Usage
 Open your web browser and navigate to http://localhost:3000.
 Select keywords that match your current mood and vibe.
@@ -59,3 +61,4 @@ Felicia: Main framework and project structure.
 Han and Stella: Back-end algorithms and Spotify API integration.
 
 Chloe: Idea planning, UI/UX design, and functionality planning.
+
